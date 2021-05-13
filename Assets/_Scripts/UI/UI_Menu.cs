@@ -17,4 +17,12 @@ public class UI_Menu : MonoBehaviour
         gm.ChangeState(GameManager.GameState.GAME);  
         
     }
+
+    public void Options(){
+
+        gm.ChangeState(GameManager.GameState.OPTIONS);
+    }
+
+
+
 }

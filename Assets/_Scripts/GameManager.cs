@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager
 {
  
-    public enum GameState { MENU, GAME, PAUSE, ENDGAME };
+    public enum GameState { MENU, GAME, PAUSE, ENDGAME, OPTIONS };
     
 
 
