@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShotBehaviour : MonoBehaviour
 {
-    float speed = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +13,12 @@ public class ShotBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.forward * Time.deltaTime * speed;
         
+        
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        Destroy(this.gameObject);
     }
 }
