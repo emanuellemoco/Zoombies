@@ -21,19 +21,30 @@ public class PlayerController : MonoBehaviour
     GameObject playerCamera;
     //Utilizada para poder travar a rotação no angulo que quisermos.
     float cameraRotation;
+
+    GameManager gm;
     
     
     void Start()
     {
+        gm = GameManager.GetInstance();
         characterController = GetComponent<CharacterController>();
         playerCamera = GameObject.Find("Main Camera");
         cameraRotation = 0.0f;
-        Cursor.lockState = CursorLockMode.Locked;    
-        Cursor.visible = false;
         }
     
     void Update()
     {   
+        if (gm.gameState != GameManager.GameState.GAME){
+            Cursor.lockState = CursorLockMode.None;    
+            Cursor.visible = true;
+            return;
+        }
+        if (gm.lastState != GameManager.GameState.GAME && gm.gameState == GameManager.GameState.GAME){
+            Cursor.lockState = CursorLockMode.Locked;    
+            Cursor.visible = false;
+        }
+
         //Tratando movimentação do mouse
         float mouse_dX = Input.GetAxis("Mouse X");
         float mouse_dY = Input.GetAxis("Mouse Y");
