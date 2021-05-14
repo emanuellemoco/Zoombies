@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour
     public float _gravidade = 9.8f;
     public float jump = 5.0f;
     
+
     float y = 0;
 
     CharacterController characterController;
 
     //Referência usada para a câmera filha do jogador
     GameObject playerCamera;
+    public GameObject gunWayPoint;
     //Utilizada para poder travar a rotação no angulo que quisermos.
     float cameraRotation;
 
@@ -84,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
     Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-    GameObject bullet = Instantiate(shoot, playerCamera.transform.position+(playerCamera.transform.forward*2), Quaternion.identity);
+    GameObject bullet = Instantiate(shoot, gunWayPoint.transform.position, Camera.main.transform.rotation * Quaternion.Euler(0f, 90f, 0f));
     Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
 
     Vector3 direction = (ray.GetPoint(100000.0f) - bullet.transform.position).normalized;
