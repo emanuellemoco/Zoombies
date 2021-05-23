@@ -7,10 +7,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public GameObject shoot;
-    public float bulletSpeed = 2.0f;
     public float _baseSpeed = 10.0f;
-    public float _gravidade = 9.8f;
+    public float _gravidade = 9.8f; 
     public float jump = 5.0f;
     
 
@@ -20,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     //Referência usada para a câmera filha do jogador
     GameObject playerCamera;
-    public GameObject gunWayPoint;
     //Utilizada para poder travar a rotação no angulo que quisermos.
     float cameraRotation;
 
@@ -73,27 +70,8 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up, mouse_dX);
         playerCamera.transform.localRotation = Quaternion.Euler(cameraRotation, 0.0f, 0.0f);
         
-        
-        if (Input.GetMouseButtonDown(0))
-            Shoot();
-    }
-
-
-    void Shoot()
-    {
-
-    //Instantiate(shoot, playerCamera.transform.position+(playerCamera.transform.forward*2), Quaternion.identity);
-
-    Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
-    GameObject bullet = Instantiate(shoot, gunWayPoint.transform.position, Camera.main.transform.rotation * Quaternion.Euler(0f, 90f, 0f));
-    Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
-
-    Vector3 direction = (ray.GetPoint(100000.0f) - bullet.transform.position).normalized;
-
-    bulletRigidbody.AddForce(direction * bulletSpeed, ForceMode.Impulse);
-    
-
 
     }
+
+
 }
