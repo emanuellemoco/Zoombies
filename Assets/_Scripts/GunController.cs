@@ -11,6 +11,7 @@ public class GunController : MonoBehaviour
 
     public float shotDelay;
     private float _shotTimestamp = 0.0f; 
+    public int damage;
 
 
     void Start()
@@ -32,11 +33,11 @@ public class GunController : MonoBehaviour
             return;
     _shotTimestamp = Time.time; 
 
-    //Instantiate(shoot, playerCamera.transform.position+(playerCamera.transform.forward*2), Quaternion.identity);
 
     Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
     GameObject bullet = Instantiate(shoot, gunWayPoint.transform.position, Camera.main.transform.rotation * Quaternion.Euler(0f, 90f, 0f));
+    bullet.GetComponent<ShotBehaviour>().damage = damage;
     Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
 
     Vector3 direction = (ray.GetPoint(100000.0f) - bullet.transform.position).normalized;
