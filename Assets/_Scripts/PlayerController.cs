@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
        
         //Tratando a rotação da câmera
         cameraRotation += -mouse_dY;
-        Mathf.Clamp(cameraRotation, -75.0f, 75.0f);
+        cameraRotation = Mathf.Clamp(cameraRotation, -75.0f, 75.0f);
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");

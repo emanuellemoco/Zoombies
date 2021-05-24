@@ -24,7 +24,7 @@ public class ShotBehaviour : MonoBehaviour
         Debug.Log(col.gameObject.tag);
         if (col.gameObject.CompareTag("Zombie")){
             Debug.Log("A zombie!");
-            ZombieController controller = col.gameObject.GetComponent<ZombieController>();
+            EnemyController controller = col.gameObject.GetComponent<EnemyController>();
             if (controller != null)
                 controller.TakeDamage(damage);
                 Debug.Log("Doing damage");

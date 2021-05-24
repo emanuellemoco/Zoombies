@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +23,8 @@ public class ZombieController : MonoBehaviour
     }
 
     public void TakeDamage(int damage)
-    {   
+    {
+        Debug.Log("Take damage");   
         life -= damage;
         Debug.Log(life);
         if (life <=0)
