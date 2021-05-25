@@ -7,11 +7,12 @@ public class ZombieController : MonoBehaviour
 
     private int life;
     Animator animator;
+    public AudioClip die; 
 
     // Start is called before the first frame update
     void Start()
     {
-        life = 30;
+        life = 10;
         animator = GetComponent<Animator>();
         
     }
@@ -33,6 +34,8 @@ public class ZombieController : MonoBehaviour
     
     private void Die()
     {
+        AudioManager.PlaySFX(die);
+
         animator.SetTrigger("Death");
     }
     

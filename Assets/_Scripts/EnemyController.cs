@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public NavMeshAgent agent;
     private int life;
     Animator animator;
+    public AudioClip die; 
     private bool isDead = false;
     public GameObject player;
     // Start is called before the first frame update
@@ -35,6 +36,7 @@ public class EnemyController : MonoBehaviour
     
     private void Die()
     {
+        AudioManager.PlaySFX(die);
         animator.SetTrigger("Death");
         isDead = true;
     }
