@@ -7,12 +7,10 @@ public class GameManager
  
     public enum GameState { MENU, GAME, PAUSE, ENDGAME, OPTIONS };
     
-
-
     public GameState gameState { get; private set; }
     public GameState lastState { get; private set; }
 
-    
+    public int points = 0;
 
     public delegate void ChangeStateDelegate();
     public static ChangeStateDelegate changeStateDelegate;
@@ -44,4 +42,7 @@ public class GameManager
         changeStateDelegate();
     }
 
+    public void Reset(){
+        points = 0;
+    }
 }

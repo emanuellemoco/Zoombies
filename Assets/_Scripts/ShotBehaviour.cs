@@ -5,10 +5,12 @@ using UnityEngine;
 public class ShotBehaviour : MonoBehaviour
 {
     public int damage;
+    GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameManager.GetInstance();
         
     }
 
@@ -27,6 +29,8 @@ public class ShotBehaviour : MonoBehaviour
             EnemyController controller = col.gameObject.GetComponent<EnemyController>();
             if (controller != null)
                 controller.TakeDamage(damage);
+                gm.points += 10;
+
                 Debug.Log("Doing damage");
             }
         Debug.Log("Destroyed?");
