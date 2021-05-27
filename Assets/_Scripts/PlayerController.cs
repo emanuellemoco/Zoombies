@@ -70,6 +70,13 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up, mouse_dX);
         playerCamera.transform.localRotation = Quaternion.Euler(cameraRotation, 0.0f, 0.0f);
         
+        if  (Input.GetKeyDown(KeyCode.Alpha1))
+            WeaponSwitching.SelectWeapon(0);
+        if  (Input.GetKeyDown(KeyCode.Alpha2))
+            WeaponSwitching.SelectWeapon(1);
+        if  (Input.GetKeyDown(KeyCode.Alpha3))
+            WeaponSwitching.SelectWeapon(2);
+        
 
     }
 

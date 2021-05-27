@@ -16,7 +16,6 @@ public class GunController : MonoBehaviour
 
     void Start()
     {
-        this.gameObject.transform.SetParent(parent.transform);
 
     }
 

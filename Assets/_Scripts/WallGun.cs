@@ -18,8 +18,8 @@ public class WallGun : MonoBehaviour
     void Update()
     {
 
-        if  (Input.GetKeyDown(KeyCode.F) && gm.points >= requiredPoints)
-            WeaponSwitching.SelectWeapon(1);
+        //if  (Input.GetKeyDown(KeyCode.F) && gm.points >= requiredPoints)
+          //  WeaponSwitching.SelectWeapon(1);
         
     }
 }

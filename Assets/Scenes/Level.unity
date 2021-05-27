@@ -1544,6 +1544,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795773983358692640, guid: b3f80d94e42bd3141be8a8ace9e0f6b0,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795773983358692640, guid: b3f80d94e42bd3141be8a8ace9e0f6b0,
+        type: 3}
       propertyPath: m_TagString
       value: Barrier
       objectReference: {fileID: 0}
@@ -3873,6 +3878,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795773983358692640, guid: b3f80d94e42bd3141be8a8ace9e0f6b0,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795773983358692640, guid: b3f80d94e42bd3141be8a8ace9e0f6b0,
+        type: 3}
       propertyPath: m_TagString
       value: Barrier
       objectReference: {fileID: 0}
@@ -4053,6 +4063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 824120507}
+  - component: {fileID: 824120508}
   m_Layer: 0
   m_Name: Window_woods1
   m_TagString: Untagged
@@ -4078,6 +4089,18 @@ Transform:
   m_Father: {fileID: 2077417428}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &824120508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824120506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0143dff0e99e033418ea3e94831c09cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &851942668 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 182600, guid: 966be20f9e46e6a4cbeecd459d97d9c3,
@@ -10212,12 +10235,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 383dfb3c7bc1656479bb52c8f8ed3851,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.67
+      value: -0.639
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 383dfb3c7bc1656479bb52c8f8ed3851,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0699997
+      value: 1.246
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 383dfb3c7bc1656479bb52c8f8ed3851,
         type: 3}
@@ -10327,7 +10350,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 383dfb3c7bc1656479bb52c8f8ed3851,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8009987137999418058, guid: 383dfb3c7bc1656479bb52c8f8ed3851,
         type: 3}
@@ -11870,6 +11893,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795773983358692640, guid: b3f80d94e42bd3141be8a8ace9e0f6b0,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795773983358692640, guid: b3f80d94e42bd3141be8a8ace9e0f6b0,
+        type: 3}
       propertyPath: m_TagString
       value: Barrier
       objectReference: {fileID: 0}
@@ -13020,6 +13048,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wood_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795773983358692640, guid: b3f80d94e42bd3141be8a8ace9e0f6b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1795773983358692640, guid: b3f80d94e42bd3141be8a8ace9e0f6b0,
         type: 3}
