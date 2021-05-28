@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        life = 30;
+        life = 6;
         animator = GetComponent<Animator>();
     }
 
