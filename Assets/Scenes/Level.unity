@@ -914,8 +914,9 @@ GameObject:
   m_Component:
   - component: {fileID: 122603250}
   - component: {fileID: 122603251}
+  - component: {fileID: 122603252}
   m_Layer: 0
-  m_Name: Wall_guns
+  m_Name: WallMP5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,13 +929,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122603249}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.3, y: 1.3799999, z: 4.9219465}
+  m_LocalRotation: {x: -0.21095484, y: -0.29256007, z: -0.15879197, w: 0.91907114}
+  m_LocalPosition: {x: -0.65, y: -2.03, z: 1.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 873442237}
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1642939053}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &122603251
 MonoBehaviour:
@@ -948,8 +949,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b892a729f4602484ab8273da9d60a9c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunIndex: 1
-  requiredPoints: 0
+  requiredPoints: 100
+  weaponIndex: 1
+  radius: 0
+--- !u!65 &122603252
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122603249}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 3.0523834, y: 4.7975945, z: 3.9748988}
+  m_Center: {x: -1.0261917, y: -1.0796038, z: 0.17441168}
 --- !u!1 &127843970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,7 +1328,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b6a8a4465dd8f844a97a832888aca252,
         type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6a8a4465dd8f844a97a832888aca252,
         type: 3}
@@ -7984,17 +7999,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1b3da6dd64ad5124493c2ae50e29ca0b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.820004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1b3da6dd64ad5124493c2ae50e29ca0b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.84
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1b3da6dd64ad5124493c2ae50e29ca0b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 41.278053
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1b3da6dd64ad5124493c2ae50e29ca0b,
         type: 3}
@@ -9225,6 +9240,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1598744027}
     m_Modifications:
+    - target: {fileID: 1048821267394364669, guid: efeab8480c7539042855de53b6784189,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.504
+      objectReference: {fileID: 0}
     - target: {fileID: 1048821267394439715, guid: efeab8480c7539042855de53b6784189,
         type: 3}
       propertyPath: m_RootOrder
@@ -9290,7 +9310,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1048821267394677015, guid: efeab8480c7539042855de53b6784189,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1048821268216940368, guid: efeab8480c7539042855de53b6784189, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: efeab8480c7539042855de53b6784189, type: 3}
 --- !u!4 &616222309 stripped
 Transform:
@@ -12450,7 +12476,7 @@ GameObject:
   - component: {fileID: 1071864324}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15514,6 +15540,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1598744027}
+  - component: {fileID: 1598744028}
+  - component: {fileID: 1598744029}
   m_Layer: 0
   m_Name: WallShotgun
   m_TagString: Untagged
@@ -15528,14 +15556,42 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598744026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.7, y: 2.3573177, z: 24.2}
+  m_LocalRotation: {x: -0.21095484, y: -0.29256007, z: -0.15879197, w: 0.91907114}
+  m_LocalPosition: {x: -20.082018, y: -15.542147, z: -31.156425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 616222309}
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 1642939053}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1598744028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598744026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 4.2165604, y: 4.458782, z: 3.5235667}
+  m_Center: {x: 0.9538803, y: 0.068701476, z: -0.9235133}
+--- !u!114 &1598744029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598744026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b892a729f4602484ab8273da9d60a9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredPoints: 500
+  weaponIndex: 2
+  radius: 30
 --- !u!4 &1604561125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1414145955267868570, guid: b3f80d94e42bd3141be8a8ace9e0f6b0,
@@ -15616,6 +15672,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605926153}
   m_CullTransparentMesh: 0
+--- !u!1 &1642939052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1642939053}
+  m_Layer: 0
+  m_Name: Wall_Guns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1642939053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642939052}
+  m_LocalRotation: {x: 0.21095484, y: 0.29256007, z: 0.15879197, w: 0.91907114}
+  m_LocalPosition: {x: 81.55579, y: 14.886199, z: 45.266663}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 122603250}
+  - {fileID: 1598744027}
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664012889
 GameObject:
   m_ObjectHideFlags: 0
@@ -15645,7 +15733,7 @@ Transform:
   m_Children:
   - {fileID: 310800572}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 17.149, y: 39.264004, z: 25.762001}
 --- !u!1 &1669127640 stripped
 GameObject:
