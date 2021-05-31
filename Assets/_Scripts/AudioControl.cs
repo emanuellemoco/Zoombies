@@ -18,7 +18,6 @@ public class AudioControl : MonoBehaviour
   // Inicializo os sliders nos limites dem db do mixer e já com os valores que estão salvos no mixer
    void Start()
    {
-       DontDestroyOnLoad(this.gameObject);
        master.GetFloat("masterVolume", out outMaster);
        masterSlider.minValue = -80.0f;
        masterSlider.maxValue = 20.0f;

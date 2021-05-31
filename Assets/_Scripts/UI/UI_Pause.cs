@@ -14,13 +14,14 @@ public class UI_Pause : MonoBehaviour
 
     public void Resume()
     {
+        Time.timeScale = 1;
         gm.ChangeState(GameManager.GameState.GAME);
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Exit()
     {
-        gm.ChangeState(GameManager.GameState.MENU);
+        SceneManager.LoadScene("Level");
     }
     public void Options()
     {

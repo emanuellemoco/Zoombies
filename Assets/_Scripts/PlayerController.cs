@@ -33,7 +33,18 @@ public class PlayerController : MonoBehaviour
         }
     
     void Update()
-    {   
+    {  
+        if (gm.gameState != GameManager.GameState.GAME) {
+            Time.timeScale = 0;
+            return;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape) && gm.gameState == GameManager.GameState.GAME) {
+            gm.ChangeState(GameManager.GameState.PAUSE);
+            Time.timeScale = 0;
+        }
+
+
         if (gm.gameState != GameManager.GameState.GAME){
             Cursor.lockState = CursorLockMode.None;    
             Cursor.visible = true;

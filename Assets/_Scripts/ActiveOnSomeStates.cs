@@ -10,7 +10,6 @@ public class ActiveOnSomeStates : MonoBehaviour
 
    void Start()
    {
-       //DontDestroyOnLoad(this.gameObject);
       gm = GameManager.GetInstance();
       GameManager.changeStateDelegate += UpdateVisibility;
        

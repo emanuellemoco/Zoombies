@@ -12,6 +12,9 @@ public class GunController : MonoBehaviour
     public float shotDelay;
     private float _shotTimestamp = 0.0f; 
     public int damage;
+    public float range = 100f;
+    // public ParticleSystem muzzleFlash;
+
 
 
     void Start()
@@ -26,7 +29,21 @@ public class GunController : MonoBehaviour
             Shoot();
     }
     
-    void Shoot()
+    void Shoot(){
+
+        //muzzleFlash.Play();
+
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range)){
+
+            Debug.Log(hit.transform.name);
+            EnemyController enemy = hit.transform.GetComponent<EnemyController>();
+            if (enemy != null){
+                enemy.TakeDamage(damage );
+            }
+        }
+    }
+    void ShootOLD()
     {
     if ( Time.time - _shotTimestamp < shotDelay) 
             return;
@@ -42,8 +59,7 @@ public class GunController : MonoBehaviour
     Vector3 direction = (ray.GetPoint(100000.0f) - bullet.transform.position).normalized;
 
     bulletRigidbody.AddForce(direction * bulletSpeed, ForceMode.Impulse);
-    
-
 
     }
+
 }

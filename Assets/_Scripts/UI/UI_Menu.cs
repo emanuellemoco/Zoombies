@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class UI_Menu : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class UI_Menu : MonoBehaviour
         
     }
     public void Play(){
-        
+        Time.timeScale = 1;
         gm.ChangeState(GameManager.GameState.GAME);  
         
     }
@@ -23,6 +25,8 @@ public class UI_Menu : MonoBehaviour
         gm.ChangeState(GameManager.GameState.OPTIONS);
     }
 
-
+    public void Quit(){
+        Application.Quit();
+    }
 
 }
