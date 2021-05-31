@@ -2562,6 +2562,9 @@ MonoBehaviour:
   damage: 5
   range: 100
   muzzleFlash: {fileID: 341143755}
+  bloodImpact: {fileID: 1000010191825552, guid: 83e55d3418297934fab882559d009285,
+    type: 3}
+  wallImpact: {fileID: 1000012142692022, guid: a475880e7da0e9548aa05cb7933752cd, type: 3}
 --- !u!65 &314242741
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8066,6 +8069,8 @@ MonoBehaviour:
   damage: 2
   range: 100
   muzzleFlash: {fileID: 0}
+  bloodImpact: {fileID: 0}
+  wallImpact: {fileID: 0}
 --- !u!1001 &468669287
 PrefabInstance:
   m_ObjectHideFlags: 0

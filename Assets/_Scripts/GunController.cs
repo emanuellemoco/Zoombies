@@ -15,6 +15,11 @@ public class GunController : MonoBehaviour
     public float range = 100f;
     public ParticleSystem muzzleFlash;
 
+    public GameObject bloodImpact;
+
+    public GameObject wallImpact;
+
+
 
 
     void Start()
@@ -44,6 +49,14 @@ public class GunController : MonoBehaviour
             EnemyController enemy = hit.transform.GetComponent<EnemyController>();
             if (enemy != null){
                 enemy.TakeDamage(damage );
+                
+                GameObject impact = Instantiate(bloodImpact, hit.point, Quaternion.identity);//,Quaternion.LookRotation(hit.normal));
+                Destroy(impact, 2.0f);
+            }
+        else {
+            GameObject  wall= Instantiate(wallImpact, hit.point, Quaternion.identity);//,Quaternion.LookRotation(hit.normal));
+            Destroy(wall, 2.0f);
+
             }
         }
     }
