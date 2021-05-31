@@ -951,7 +951,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredPoints: 100
   weaponIndex: 1
-  radius: 0
 --- !u!65 &122603252
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15591,7 +15590,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredPoints: 500
   weaponIndex: 2
-  radius: 30
 --- !u!4 &1604561125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1414145955267868570, guid: b3f80d94e42bd3141be8a8ace9e0f6b0,

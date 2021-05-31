@@ -8,9 +8,11 @@ public class WallGun : MonoBehaviour
     bool isPlayerNearby;
     public int weaponIndex;
 
-    public int radius = 10;
+    int radius = 5;
 
     GameManager gm;
+
+    // public Collider[] currentWallGun; 
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,8 @@ public class WallGun : MonoBehaviour
     void Update()
     {
         isPlayerNearby = false;
-        Collider[] hitColliders = Physics.OverlapSphere(Vector3.zero, radius);
+        // Collider[] hitColliders = Physics.OverlapSphere(Vector3.zero, radius);
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, radius);
 
         foreach (Collider col in hitColliders){
             Debug.Log(col.tag);   
