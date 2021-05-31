@@ -13,7 +13,7 @@ public class GunController : MonoBehaviour
     private float _shotTimestamp = 0.0f; 
     public int damage;
     public float range = 100f;
-    // public ParticleSystem muzzleFlash;
+    public ParticleSystem muzzleFlash;
 
 
 
@@ -25,13 +25,17 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetButtonDown("Fire1"))
             Shoot();
     }
     
     void Shoot(){
+            
+        if ( Time.time - _shotTimestamp < shotDelay) 
+            return;
+        _shotTimestamp = Time.time; 
 
-        //muzzleFlash.Play();
+        muzzleFlash.Play();
 
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range)){
