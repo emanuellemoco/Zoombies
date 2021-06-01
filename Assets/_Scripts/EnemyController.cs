@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Take damage");   
         life -= damage;
         // Debug.Log(life);
-        if (life <=0)
+        if (life <=0 && !isDead)
             Die();
     }
     
