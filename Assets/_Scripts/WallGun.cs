@@ -27,7 +27,6 @@ public class WallGun : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, radius);
 
         foreach (Collider col in hitColliders){
-            Debug.Log(col.tag);   
             if (col.tag == "Player"){ 
                 Debug.Log("PlayerNearby");
                 isPlayerNearby = true;}

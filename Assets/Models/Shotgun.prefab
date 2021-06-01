@@ -81,6 +81,10 @@ MonoBehaviour:
   gunWayPoint: {fileID: 1048821266802103371}
   shotDelay: 2
   damage: 8
+  range: 100
+  muzzleFlash: {fileID: 0}
+  bloodImpact: {fileID: 0}
+  wallImpact: {fileID: 0}
 --- !u!1 &1048821267394677015
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1048821267394364669
 Transform:
   m_ObjectHideFlags: 0

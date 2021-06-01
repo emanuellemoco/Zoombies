@@ -10,6 +10,9 @@ public class EnemyController : MonoBehaviour
     Animator animator;
     public AudioClip die; 
     private bool isDead = false;
+    
+
+    private bool isBarrier = false;
     public GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +24,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isDead)
+        if (!isDead && !isBarrier)
             agent.SetDestination(player.transform.position);
         
     }
@@ -29,7 +32,7 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log("Take damage");   
         life -= damage;
-        // Debug.Log(life);
+
         if (life <=0 && !isDead)
             Die();
     }
@@ -39,5 +42,20 @@ public class EnemyController : MonoBehaviour
         AudioManager.PlaySFX(die);
         animator.SetTrigger("Death");
         isDead = true;
+        agent.ResetPath();
     }
+    
+    public void DestroyBarrier(){
+        isBarrier = true;
+        agent.ResetPath();
+        animator.SetTrigger("Headbutting");
+        StartCoroutine(headbuttFinished());
+
+    }
+    IEnumerator headbuttFinished() {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length+animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        isBarrier = false;
+
+    }
+    
 }
