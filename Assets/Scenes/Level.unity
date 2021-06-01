@@ -10404,7 +10404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 770736151}
   die: {fileID: 8300000, guid: 1b5752924a56baa45bed73d0faeea739, type: 3}
-  player: {fileID: 1071864321}
+  playerPos: {fileID: 1071864321}
+  attackDelay: 4
 --- !u!195 &770736151
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -16526,7 +16527,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1004242808}
   die: {fileID: 8300000, guid: 1b5752924a56baa45bed73d0faeea739, type: 3}
-  player: {fileID: 1071864321}
+  playerPos: {fileID: 1071864321}
+  attackDelay: 4
 --- !u!195 &1004242808
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -18240,7 +18242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1315525128}
   die: {fileID: 8300000, guid: 1b5752924a56baa45bed73d0faeea739, type: 3}
-  player: {fileID: 1071864321}
+  playerPos: {fileID: 1071864321}
+  attackDelay: 4
 --- !u!95 &1315525130
 Animator:
   serializedVersion: 3
@@ -18819,7 +18822,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1348966355}
   die: {fileID: 8300000, guid: 1b5752924a56baa45bed73d0faeea739, type: 3}
-  player: {fileID: 1071864321}
+  playerPos: {fileID: 1071864321}
+  attackDelay: 4
 --- !u!95 &1348966357
 Animator:
   serializedVersion: 3
@@ -20087,7 +20091,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1559114588}
   die: {fileID: 8300000, guid: 1b5752924a56baa45bed73d0faeea739, type: 3}
-  player: {fileID: 1071864321}
+  playerPos: {fileID: 1071864321}
+  attackDelay: 4
 --- !u!95 &1559114590
 Animator:
   serializedVersion: 3
@@ -27825,6 +27830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048821267394439715, guid: efeab8480c7539042855de53b6784189,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1048821267394439715, guid: efeab8480c7539042855de53b6784189,
         type: 3}
