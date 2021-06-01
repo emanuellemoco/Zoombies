@@ -10,10 +10,16 @@ public class EnemyController : MonoBehaviour
     Animator animator;
     public AudioClip die; 
     private bool isDead = false;
-    
-
     private bool isBarrier = false;
-    public GameObject player;
+    private bool isPlayerNearby = false;
+    PlayerController player;
+
+    public GameObject playerPos;
+
+    public float attackDelay = 4;
+    private float _attackTimestamp = 0.0f; 
+
+    int radius = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +29,36 @@ public class EnemyController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (!isDead && !isBarrier)
-            agent.SetDestination(player.transform.position);
+    { 
         
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, radius);
+
+        foreach (Collider col in hitColliders){
+            if (col.tag == "Player"){ 
+                player = col.gameObject.GetComponent<PlayerController>();
+                isPlayerNearby = true;}
+        }
+
+        if (isPlayerNearby){
+            Attack();
+
+        }
+
+        if (!isDead && !isBarrier && !isPlayerNearby)
+            agent.SetDestination(playerPos.transform.position);
+        
+    }
+
+
+    private void Attack(){
+        if ( Time.time - _attackTimestamp < attackDelay) 
+            return;
+        _attackTimestamp = Time.time; 
+        player.TakeDamage();
+        StartCoroutine(AttackRoutine());
     }
     public void TakeDamage(int damage)
     {
-        Debug.Log("Take damage");   
         life -= damage;
 
         if (life <=0 && !isDead)
@@ -49,13 +77,19 @@ public class EnemyController : MonoBehaviour
         isBarrier = true;
         agent.ResetPath();
         animator.SetTrigger("Headbutting");
-        StartCoroutine(headbuttFinished());
+        StartCoroutine(Headbutt());
 
     }
-    IEnumerator headbuttFinished() {
+    IEnumerator Headbutt() {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length+animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
         isBarrier = false;
 
+    }
+
+    IEnumerator AttackRoutine() {
+        animator.SetTrigger("Attack");        
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length+animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        isPlayerNearby = false;
     }
     
 }

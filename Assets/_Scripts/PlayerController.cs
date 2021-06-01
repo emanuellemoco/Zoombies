@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float _baseSpeed = 10.0f;
     public float _gravidade = 9.8f; 
     public float jump = 5.0f;
+    private int life;
     
 
     float y = 0;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerCamera = GameObject.Find("Main Camera");
         cameraRotation = 0.0f;
+        life = 10;
         }
     
     void Update()
@@ -80,8 +82,15 @@ public class PlayerController : MonoBehaviour
         characterController.Move(direction * _baseSpeed * Time.deltaTime);
         transform.Rotate(Vector3.up, mouse_dX);
         playerCamera.transform.localRotation = Quaternion.Euler(cameraRotation, 0.0f, 0.0f);
-        
+    }
 
+    public void TakeDamage()
+    {
+        life--;
+        if (life <= 0) Die();
+    }
+    public void Die(){
+        //#
     }
 
 
