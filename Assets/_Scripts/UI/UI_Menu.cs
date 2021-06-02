@@ -17,6 +17,8 @@ public class UI_Menu : MonoBehaviour
     public void Play(){
         Time.timeScale = 1;
         gm.ChangeState(GameManager.GameState.GAME);  
+        SceneManager.LoadScene("Level"); 
+
         
     }
 

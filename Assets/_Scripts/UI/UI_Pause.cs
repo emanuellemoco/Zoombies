@@ -21,17 +21,12 @@ public class UI_Pause : MonoBehaviour
 
     public void Exit()
     {
-        SceneManager.LoadScene("Level");
+        gm.ChangeState(GameManager.GameState.MENU);
     }
     public void Options()
     {
         gm.ChangeState(GameManager.GameState.OPTIONS);
     }
 
-    public void Reset()
-    {
-        gm.ChangeState(GameManager.GameState.GAME);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
     
 }
