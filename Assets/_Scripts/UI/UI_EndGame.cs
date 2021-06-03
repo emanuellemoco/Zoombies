@@ -16,6 +16,6 @@ public class UI_EndGame : MonoBehaviour
 
     public void Exit()
     {
-        SceneManager.LoadScene("Level"); 
+        gm.ChangeState(GameManager.GameState.MENU);
     }
 }

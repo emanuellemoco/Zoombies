@@ -31,13 +31,15 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerCamera = GameObject.Find("Main Camera");
         cameraRotation = 0.0f;
-        life = 10;
+        life = 5;
         }
     
     void Update()
     {  
         if (gm.gameState != GameManager.GameState.GAME) {
             Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;    
+            Cursor.visible = true;
             return;
         }
 
@@ -47,11 +49,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (gm.gameState != GameManager.GameState.GAME){
-            Cursor.lockState = CursorLockMode.None;    
-            Cursor.visible = true;
-            return;
-        }
         if (gm.lastState != GameManager.GameState.GAME && gm.gameState == GameManager.GameState.GAME){
             Cursor.lockState = CursorLockMode.Locked;    
             Cursor.visible = false;
@@ -86,11 +83,13 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
+        Debug.Log("Damage");
         life--;
         if (life <= 0) Die();
     }
     public void Die(){
-        //#
+
+        gm.ChangeState(GameManager.GameState.ENDGAME);
     }
 
 
