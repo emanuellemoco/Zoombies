@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WallGun : MonoBehaviour
 {
     public int requiredPoints;
     bool isPlayerNearby;
     public int weaponIndex;
+
+    public Text message;
 
     int radius = 5;
 
@@ -31,19 +34,19 @@ public class WallGun : MonoBehaviour
                 Debug.Log("PlayerNearby");
                 isPlayerNearby = true;}
         }
+        if (isPlayerNearby && gm.gameState == GameManager.GameState.GAME){
+            message.text = $"Press F to buy weapon.  {requiredPoints.ToString()} points";
+            message.gameObject.SetActive(true);
+        }
+        else 
+            message.gameObject.SetActive(false);
 
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F)){
+
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F) && gm.points >= requiredPoints ){
+            gm.points -= requiredPoints;
             WeaponSwitching.SelectWeapon(weaponIndex);
         }
 
-
-        //if  (Input.GetKeyDown(KeyCode.F) && gm.points >= requiredPoints)
-          //  WeaponSwitching.SelectWeapon(1);
-        
     }
 
-        void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(Vector3.zero, radius);
-    }
 }

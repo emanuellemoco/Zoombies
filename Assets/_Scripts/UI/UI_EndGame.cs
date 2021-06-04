@@ -11,7 +11,6 @@ public class UI_EndGame : MonoBehaviour
 
     public void Start(){
         gm = GameManager.GetInstance();
-        gm.points = 0;
     }
 
     public void Exit()

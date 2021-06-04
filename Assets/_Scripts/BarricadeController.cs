@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class BarricadeController : MonoBehaviour
 {
@@ -12,10 +14,14 @@ public class BarricadeController : MonoBehaviour
     private float buildDelay = 0.5f;
     private float destroyDelay = 2.0f;
 
-    EnemyController enemy;
+    EnemyController enemy; 
+    
+    public Text message;
+    GameManager gm;
 
     void Start()
     {
+        gm = GameManager.GetInstance(); 
         
     }
 
@@ -34,6 +40,14 @@ public class BarricadeController : MonoBehaviour
                 enemy = col.gameObject.GetComponent<EnemyController>();
             }
         }
+
+        if (isPlayerNearby && gm.gameState == GameManager.GameState.GAME){
+            message.text = "Press F to rebuild barrier";
+            message.gameObject.SetActive(true);
+        }
+        else 
+            message.gameObject.SetActive(false);
+
 
         if (isPlayerNearby && Input.GetKey(KeyCode.F))
             buildBarrier();

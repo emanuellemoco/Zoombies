@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public float _baseSpeed = 10.0f;
     public float _gravidade = 9.8f; 
     public float jump = 5.0f;
-    private int life;
     
 
     float y = 0;
@@ -31,7 +30,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerCamera = GameObject.Find("Main Camera");
         cameraRotation = 0.0f;
-        life = 5;
+        gm.health = 5;
         }
     
     void Update()
@@ -84,8 +83,8 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage()
     {
         Debug.Log("Damage");
-        life--;
-        if (life <= 0) Die();
+        gm.health--;
+        if (gm.health <= 0) Die();
     }
     public void Die(){
 
