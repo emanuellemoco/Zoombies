@@ -53,6 +53,7 @@ public class Spawner : MonoBehaviour
 
 
     private void Spawn(){
+        Debug.Log($"Tchoo tchoo!! Spawning!! {_instance.zombiesRound} enemies");
 
         for (int i=0; i<_instance.zombiesRound;i++){
         Vector3 offset = Random.onUnitSphere * Random.Range(10, 100);

@@ -63,7 +63,6 @@ public class EnemyController : MonoBehaviour
 
         if (life <=0 && !isDead)
             Die();
-            Spawner.ZombieKilled();
     }
     
     private void Die()
@@ -71,6 +70,7 @@ public class EnemyController : MonoBehaviour
         AudioManager.PlaySFX(die);
         animator.SetTrigger("Death");
         isDead = true;
+        Spawner.ZombieKilled();
         agent.ResetPath();
     }
     
