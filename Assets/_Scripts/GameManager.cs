@@ -13,6 +13,7 @@ public class GameManager
     public int points = 2000;
 
     public int health = 5;
+    public int round;
 
     public delegate void ChangeStateDelegate();
     public static ChangeStateDelegate changeStateDelegate;

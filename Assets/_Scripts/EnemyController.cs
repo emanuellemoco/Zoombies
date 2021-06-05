@@ -63,6 +63,7 @@ public class EnemyController : MonoBehaviour
 
         if (life <=0 && !isDead)
             Die();
+            Spawner.ZombieKilled();
     }
     
     private void Die()
