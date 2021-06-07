@@ -29,7 +29,8 @@ public class EnemyController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+        isPlayerNearby = false;
         
         Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, radius);
 
@@ -39,7 +40,7 @@ public class EnemyController : MonoBehaviour
                 isPlayerNearby = true;}
         }
 
-        if (isPlayerNearby){
+        if (isPlayerNearby && !isDead){
             Attack();
 
         }
@@ -54,7 +55,7 @@ public class EnemyController : MonoBehaviour
         if ( Time.time - _attackTimestamp < attackDelay) 
             return;
         _attackTimestamp = Time.time; 
-        player.TakeDamage();
+        //player.TakeDamage();
         StartCoroutine(AttackRoutine());
     }
     public void TakeDamage(int damage)
@@ -91,6 +92,14 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("Attack");        
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length+animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
         isPlayerNearby = false;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collisidsahjsdf");
+        if (collision.collider.tag == "Player"){
+            player.TakeDamage();
+        }
     }
     
 }

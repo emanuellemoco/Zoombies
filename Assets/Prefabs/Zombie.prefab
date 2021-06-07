@@ -689,9 +689,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6017397539244757756}
+  - component: {fileID: 3915709092925989448}
   m_Layer: 9
   m_Name: RightHand
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -715,6 +716,19 @@ Transform:
   m_Father: {fileID: 996382436510241546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3915709092925989448
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862520501973673100}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.58133304, y: 0.100775, z: 0.17651306}
+  m_Center: {x: -0.07745728, y: -0.0005224367, z: -0.0056149354}
 --- !u!1 &3023741057417866339
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,9 +954,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4903074460817576294}
+  - component: {fileID: 1403194043192967383}
   m_Layer: 9
   m_Name: LeftHand
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -966,6 +981,19 @@ Transform:
   m_Father: {fileID: 5403451049451150561}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1403194043192967383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3675816208350466500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7293235, y: 0.14788617, z: 0.25505978}
+  m_Center: {x: 0.11480494, y: -0.0010419284, z: -0.00079148216}
 --- !u!1 &3710853102689989177
 GameObject:
   m_ObjectHideFlags: 0
