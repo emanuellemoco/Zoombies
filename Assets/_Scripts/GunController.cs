@@ -6,13 +6,13 @@ public class GunController : MonoBehaviour
 {
     public GameObject parent;
     public GameObject shoot;
-    public GameObject gunWayPoint;
-    private float bulletSpeed = 200;
-
     public float shotDelay;
     private float _shotTimestamp = 0.0f; 
     public int damage;
     public float range = 100f;
+    public int totalBullets;
+    public int bullets;
+    public float reloadTime;
 
     public ParticleSystem muzzleFlash;
 
@@ -20,6 +20,8 @@ public class GunController : MonoBehaviour
 
     public GameObject wallImpact;
     GameManager gm;
+
+    private bool isReloading = false;
     
 
 
@@ -27,7 +29,8 @@ public class GunController : MonoBehaviour
     void Start()
     {
         gm = GameManager.GetInstance();
-        gm.bullets = 10;
+        gm.bullets = bullets;
+        gm.totalBullets = totalBullets;
     }
 
     // Update is called once per frame
@@ -35,6 +38,9 @@ public class GunController : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && gm.bullets > 0 )
             Shoot();
+        if ((gm.bullets <=0 || Input.GetKeyDown(KeyCode.R)) && !isReloading){
+            isReloading = true;
+            StartCoroutine(Reload());}
     }
     
     void Shoot(){
@@ -42,9 +48,8 @@ public class GunController : MonoBehaviour
         if ( Time.time - _shotTimestamp < shotDelay) 
             return;
         _shotTimestamp = Time.time; 
-
         muzzleFlash.Play();
-        gm.bullets --;
+        gm.bullets--;
         Debug.Log(gm.bullets);
 
         RaycastHit hit;
@@ -65,23 +70,12 @@ public class GunController : MonoBehaviour
             }
         }
     }
-    void ShootOLD()
-    {
-    if ( Time.time - _shotTimestamp < shotDelay) 
-            return;
-    _shotTimestamp = Time.time; 
 
-
-    Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
-    GameObject bullet = Instantiate(shoot, gunWayPoint.transform.position, Camera.main.transform.rotation * Quaternion.Euler(0f, 90f, 0f));
-    bullet.GetComponent<ShotBehaviour>().damage = damage;
-    Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
-
-    Vector3 direction = (ray.GetPoint(100000.0f) - bullet.transform.position).normalized;
-
-    bulletRigidbody.AddForce(direction * bulletSpeed, ForceMode.Impulse);
-
+    IEnumerator Reload() {
+        yield return new WaitForSeconds(reloadTime);
+        gm.bullets = bullets;
+        gm.totalBullets -= gm.bullets;
+        isReloading = false;
     }
 
 }

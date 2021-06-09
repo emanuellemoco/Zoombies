@@ -28392,15 +28392,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3123231254167171169, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: range
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123231254167171169, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: bullets
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123231254167171169, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: reloadTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123231254167171169, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: totalBullets
+      value: 144
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123231254318074119, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: range
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123231254318074119, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: bullets
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3123231254318074119, guid: dec35ea8d98f36a4ea02e39cbe26897b,
         type: 3}
       propertyPath: shotDelay
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3123231254318074119, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: reloadTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123231254318074119, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: totalBullets
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123231254323638103, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: bullets
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3123231254323638103, guid: dec35ea8d98f36a4ea02e39cbe26897b,
         type: 3}
       propertyPath: shotDelay
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123231254323638103, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: reloadTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123231254323638103, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: totalBullets
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec35ea8d98f36a4ea02e39cbe26897b, type: 3}
