@@ -13,34 +13,39 @@ public class GunController : MonoBehaviour
     private float _shotTimestamp = 0.0f; 
     public int damage;
     public float range = 100f;
+
     public ParticleSystem muzzleFlash;
 
     public GameObject bloodImpact;
 
     public GameObject wallImpact;
-
+    GameManager gm;
+    
 
 
 
     void Start()
     {
-
+        gm = GameManager.GetInstance();
+        gm.bullets = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && gm.bullets > 0 )
             Shoot();
     }
     
     void Shoot(){
-            
+        
         if ( Time.time - _shotTimestamp < shotDelay) 
             return;
         _shotTimestamp = Time.time; 
 
         muzzleFlash.Play();
+        gm.bullets --;
+        Debug.Log(gm.bullets);
 
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range)){

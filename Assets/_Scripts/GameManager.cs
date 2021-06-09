@@ -14,6 +14,7 @@ public class GameManager
 
     public int health = 5;
     public int round;
+    public int bullets;
 
     public delegate void ChangeStateDelegate();
     public static ChangeStateDelegate changeStateDelegate;
@@ -47,5 +48,6 @@ public class GameManager
 
     public void Reset(){
         points = 0;
+        bullets = 10;
     }
 }
