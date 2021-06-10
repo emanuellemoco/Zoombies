@@ -17,6 +17,6 @@ public class UI_Ammo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        message.text = $"`{gm.bullets}/{gm.totalBullets}";
+        message.text = $"{gm.bullets}  {gm.totalBullets}";
     }
 }
