@@ -614,6 +614,11 @@ PrefabInstance:
       propertyPath: masterSlider
       value: 
       objectReference: {fileID: 1430470225}
+    - target: {fileID: 6081583674922881555, guid: 9a390081ae08bb74c8a26de84b743d03,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: b712ac0a4e3253c408d8232e24de3a8e, type: 3}
     - target: {fileID: 6081583674922881558, guid: 9a390081ae08bb74c8a26de84b743d03,
         type: 3}
       propertyPath: m_Name

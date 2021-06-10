@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour
     private int life;
     Animator animator;
     public AudioClip die;
+    
+    public AudioClip attack;
+
 
     private bool attacking = false; 
     private bool isDead = false;
@@ -61,6 +64,10 @@ public class EnemyController : MonoBehaviour
         if ( Time.time - _attackTimestamp < attackDelay) 
             return;
             attacking = true;
+
+
+        AudioManager.PlaySFX(attack);
+
         _attackTimestamp = Time.time; 
         //player.TakeDamage();
         StartCoroutine(AttackRoutine());

@@ -13,6 +13,7 @@ public class DoorBehaviour : MonoBehaviour
 
     int radius = 5;
 
+
     GameManager gm;
 
     int currentWeapon;

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+
+    public AudioClip shotSound;
+    public AudioClip reloadSound;
     public GameObject parent;
     public GameObject shoot;
     public float shotDelay;
@@ -13,6 +16,8 @@ public class GunController : MonoBehaviour
     public int totalBullets;
     public int bullets;
     public float reloadTime;
+    
+    public GameObject reloadMessage; 
 
     public ParticleSystem muzzleFlash;
 
@@ -36,11 +41,16 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && gm.bullets > 0 )
+        if (Input.GetMouseButton(0) && gm.bullets > 0 && !isReloading)
             Shoot();
         if ((gm.bullets <=0 || Input.GetKeyDown(KeyCode.R)) && !isReloading && gm.totalBullets >= 0){
             isReloading = true;
             StartCoroutine(Reload());}
+        if (gm.bullets <= 2 && gm.totalBullets > 0 && !isReloading)
+            reloadMessage.gameObject.SetActive(true);
+        else  
+            reloadMessage.gameObject.SetActive(false);
+        
     }
     
     void Shoot(){
@@ -50,7 +60,8 @@ public class GunController : MonoBehaviour
         _shotTimestamp = Time.time; 
         muzzleFlash.Play();
         gm.bullets--;
-        Debug.Log(gm.bullets);
+        AudioManager.PlaySFX(shotSound);
+
 
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range)){
@@ -72,6 +83,7 @@ public class GunController : MonoBehaviour
     }
 
     IEnumerator Reload() {
+        AudioManager.PlaySFX(reloadSound);
         yield return new WaitForSeconds(reloadTime);
         if (gm.totalBullets >= bullets) {
             gm.bullets = bullets;

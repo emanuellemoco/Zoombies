@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class WallGun : MonoBehaviour
 {
+
+    public AudioClip chashSound;
     public int requiredPoints;
 
     public int ammorequiredPoints;
@@ -56,10 +58,12 @@ public class WallGun : MonoBehaviour
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.F) && gm.points >= requiredPoints && currentWeapon != weaponIndex){
             gm.points -= requiredPoints;
             WeaponSwitching.SelectWeapon(weaponIndex);
+            AudioManager.PlaySFX(chashSound);
         }
         else if (isPlayerNearby && Input.GetKeyDown(KeyCode.F) && gm.points >= ammorequiredPoints && currentWeapon == weaponIndex){
             gm.points -= ammorequiredPoints;
             gm.totalBullets = reloadAmmo;
+            AudioManager.PlaySFX(chashSound);
         }
 
     }

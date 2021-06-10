@@ -1375,7 +1375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3832278490552414715}
-  die: {fileID: 8300000, guid: 1b5752924a56baa45bed73d0faeea739, type: 3}
+  die: {fileID: 8300000, guid: 138e7ff913719f84eb365fb0f6ee1aca, type: 3}
+  attack: {fileID: 8300000, guid: d9860da10a5918b438b4f6dd7b444f64, type: 3}
   playerPos: {fileID: 3123231253697004517, guid: dec35ea8d98f36a4ea02e39cbe26897b,
     type: 3}
   attackDelay: 4
