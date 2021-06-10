@@ -6,6 +6,8 @@ public class WeaponSwitching : MonoBehaviour
 {   
     private static WeaponSwitching _instance;
 
+    private int currentWeaponIndex = 0;
+
     //Idea of Weapon Switching from Brackeys (obrigado William!)
 
     void Awake()
@@ -18,15 +20,19 @@ public class WeaponSwitching : MonoBehaviour
         int i = 0;
         foreach (Transform weapon in _instance.transform)
         {
-            Debug.Log("FOREACH");
-            if(index == i)
-                weapon.gameObject.SetActive(true);
-            else{
-                Debug.Log("NOT i");
-                weapon.gameObject.SetActive(false);}
+            if(index == i){
+                _instance.currentWeaponIndex = index;
+                weapon.gameObject.SetActive(true);}
+            else
+                weapon.gameObject.SetActive(false);
             
             i++;
         }
+    }
+
+    public static int getCurrentWeapon()
+    {   
+        return _instance.currentWeaponIndex;
     }
 
 }

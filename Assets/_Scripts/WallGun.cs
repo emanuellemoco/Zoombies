@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class WallGun : MonoBehaviour
 {
     public int requiredPoints;
+
+    public int ammorequiredPoints;
+
+    public int reloadAmmo;
     bool isPlayerNearby;
     public int weaponIndex;
 
@@ -14,6 +18,8 @@ public class WallGun : MonoBehaviour
     int radius = 5;
 
     GameManager gm;
+
+    int currentWeapon;
 
     // public Collider[] currentWallGun; 
     // Start is called before the first frame update
@@ -25,7 +31,8 @@ public class WallGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isPlayerNearby = false;
+        currentWeapon = WeaponSwitching.getCurrentWeapon();
+        isPlayerNearby = false; 
         // Collider[] hitColliders = Physics.OverlapSphere(Vector3.zero, radius);
         Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, radius);
 
@@ -34,17 +41,25 @@ public class WallGun : MonoBehaviour
                 Debug.Log("PlayerNearby");
                 isPlayerNearby = true;}
         }
-        if (isPlayerNearby && gm.gameState == GameManager.GameState.GAME){
+        if (isPlayerNearby && gm.gameState == GameManager.GameState.GAME && currentWeapon != weaponIndex){
             message.text = $"Press F to buy weapon.  {requiredPoints.ToString()} points";
+            message.gameObject.SetActive(true);
+        }
+        else if (isPlayerNearby && gm.gameState == GameManager.GameState.GAME && currentWeapon == weaponIndex){
+            message.text = $"Press F to buy ammo.  {ammorequiredPoints.ToString()} points";
             message.gameObject.SetActive(true);
         }
         else 
             message.gameObject.SetActive(false);
 
 
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F) && gm.points >= requiredPoints ){
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F) && gm.points >= requiredPoints && currentWeapon != weaponIndex){
             gm.points -= requiredPoints;
             WeaponSwitching.SelectWeapon(weaponIndex);
+        }
+        else if (isPlayerNearby && Input.GetKeyDown(KeyCode.F) && gm.points >= ammorequiredPoints && currentWeapon == weaponIndex){
+            gm.points -= ammorequiredPoints;
+            gm.totalBullets = reloadAmmo;
         }
 
     }

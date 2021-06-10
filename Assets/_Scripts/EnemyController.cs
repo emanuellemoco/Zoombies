@@ -19,14 +19,17 @@ public class EnemyController : MonoBehaviour
     public GameObject playerPos;
 
     public float attackDelay = 4;
-    private float _attackTimestamp = 0.0f; 
+    private float _attackTimestamp = 0.0f;
+
+    GameManager gm; 
 
     int radius = 3;
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
     void Start()
     {
         life = 6;
         animator = GetComponent<Animator>();
+        gm = GameManager.GetInstance();
     }
 
     // Update is called once per frame
@@ -65,6 +68,7 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         life -= damage;
+        gm.points+= 20;
 
         if (life <=0 && !isDead)
             Die();
@@ -72,6 +76,7 @@ public class EnemyController : MonoBehaviour
     
     private void Die()
     {
+        gm.points += 50;
         AudioManager.PlaySFX(die);
         animator.SetTrigger("Death");
         isDead = true;
