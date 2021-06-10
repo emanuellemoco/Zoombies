@@ -8,7 +8,9 @@ public class EnemyController : MonoBehaviour
     public NavMeshAgent agent;
     private int life;
     Animator animator;
-    public AudioClip die; 
+    public AudioClip die;
+
+    private bool attacking = false; 
     private bool isDead = false;
     private bool isBarrier = false;
     private bool isPlayerNearby = false;
@@ -41,11 +43,12 @@ public class EnemyController : MonoBehaviour
         }
 
         if (isPlayerNearby && !isDead){
+            agent.ResetPath();
             Attack();
 
         }
 
-        if (!isDead && !isBarrier && !isPlayerNearby)
+        if (!isDead && !isBarrier && !isPlayerNearby && !attacking)
             agent.SetDestination(playerPos.transform.position);
         
     }
@@ -54,6 +57,7 @@ public class EnemyController : MonoBehaviour
     private void Attack(){
         if ( Time.time - _attackTimestamp < attackDelay) 
             return;
+            attacking = true;
         _attackTimestamp = Time.time; 
         //player.TakeDamage();
         StartCoroutine(AttackRoutine());
@@ -94,12 +98,14 @@ public class EnemyController : MonoBehaviour
         isPlayerNearby = false;
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider col)
     {
-        Debug.Log("collisidsahjsdf");
-        if (collision.collider.tag == "Player"){
+        if (!attacking)
+            return;
+        if (col.tag == "Player"){
             player.TakeDamage();
         }
+        attacking = false;
     }
     
 }

@@ -38,7 +38,7 @@ public class GunController : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && gm.bullets > 0 )
             Shoot();
-        if ((gm.bullets <=0 || Input.GetKeyDown(KeyCode.R)) && !isReloading){
+        if ((gm.bullets <=0 || Input.GetKeyDown(KeyCode.R)) && !isReloading && gm.totalBullets >= 0){
             isReloading = true;
             StartCoroutine(Reload());}
     }
@@ -73,8 +73,12 @@ public class GunController : MonoBehaviour
 
     IEnumerator Reload() {
         yield return new WaitForSeconds(reloadTime);
-        gm.bullets = bullets;
-        gm.totalBullets -= gm.bullets;
+        if (gm.totalBullets >= bullets) {
+            gm.bullets = bullets;
+            gm.totalBullets -= gm.bullets;}
+        else {
+            gm.bullets = gm.totalBullets;
+            gm.totalBullets = 0;}
         isReloading = false;
     }
 
