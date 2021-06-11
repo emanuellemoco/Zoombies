@@ -34032,6 +34032,11 @@ PrefabInstance:
       propertyPath: reloadMessage
       value: 
       objectReference: {fileID: 1759054963}
+    - target: {fileID: 3123231254323638097, guid: dec35ea8d98f36a4ea02e39cbe26897b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3123231254323638103, guid: dec35ea8d98f36a4ea02e39cbe26897b,
         type: 3}
       propertyPath: bullets
