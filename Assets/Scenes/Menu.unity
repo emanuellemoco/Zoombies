@@ -158,6 +158,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 4273137856046420872, guid: 361a737ee5795344cbbf6925c82ddf8c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273137856046420872, guid: 361a737ee5795344cbbf6925c82ddf8c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273137856046420872, guid: 361a737ee5795344cbbf6925c82ddf8c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4273137856149181714, guid: 361a737ee5795344cbbf6925c82ddf8c,
         type: 3}
       propertyPath: m_AnchorMax.y
