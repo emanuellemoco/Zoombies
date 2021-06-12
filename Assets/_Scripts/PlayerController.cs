@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public float _baseSpeed = 10.0f;
     public float _gravidade = 9.8f; 
-    public float jump = 5.0f;
+    // public float jump = 5.0f;
     
 
     float y = 0;
@@ -64,8 +64,8 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         
-        if  (Input.GetKeyDown(KeyCode.Space))
-            y += jump;
+        // if  (Input.GetKeyDown(KeyCode.Space))
+        //     y += jump;
 
 
         //Verificando se é preciso aplicar a gravidade
